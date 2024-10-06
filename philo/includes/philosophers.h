@@ -14,21 +14,31 @@
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
-# include <stdio.h>
+# include <asm-generic/errno-base.h>
 # include <pthread.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <stdbool.h>
+# include "colors.h"
 
 // --- TYPES --- //
 
-typedef pthread_mutex_t t_mutex;
+typedef pthread_mutex_t	t_mutex;
 
 // --- ENUMS --- //
 
-typedef enum e_mutex
-{
-	MUTEX_LOCK,
-	MUTEX_UNLOCK
-}	t_mutex_state;
+
+
+// --- MUTEX --- //
+
+void	mutex_lock(pthread_mutex_t *mutex);
+void	mutex_unlock(pthread_mutex_t *mutex);
+bool	mutex_islocked(pthread_mutex_t *mutex);
+
+
+// --- ERROR --- //
+
+void	exit_error(const char *error);
 
 // --- MAIN --- //
 

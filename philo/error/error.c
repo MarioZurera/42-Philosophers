@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mutex.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzurera- <mzurera-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,27 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "philosophers.h"
 
-void	mutex_lock(pthread_mutex_t *mutex)
+void	exit_error(const char *error)
 {
-	if (pthread_mutex_lock(mutex) != 0)
-		exit_error("[ABORT]: Unable to lock mutex.");
-}
-
-void	mutex_unlock(pthread_mutex_t *mutex)
-{
-	if (pthread_mutex_unlock(mutex) != 0)
-		exit_error("[ABORT]: Unable to unlock mutex.");
-}
-
-bool	mutex_islocked(pthread_mutex_t *mutex)
-{
-	if (pthread_mutex_trylock(mutex) == 0)
-		return (0);
-	if (pthread_mutex_trylock(mutex) == EBUSY)
-		return (1);
-	exit_error("[ABORT]: Unable to check mutex status.");
-	return (1);
+	printf(R"%s\n"NC, error);
+	exit(1);
 }

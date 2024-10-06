@@ -13,7 +13,7 @@
 # --- Variables --- #
 
 CC			= clang
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=thread
 NAME		= Philosophers
 RM			= rm -rf
 
@@ -23,6 +23,7 @@ RM			= rm -rf
 INC			= includes
 
 MUTEX		= mutex.c
+ERROR		= error.c
 TESTS		= main_test.c mutex_test.c
 #ENV		=
 #INTERNAL	=
@@ -48,13 +49,8 @@ TESTS		= main_test.c mutex_test.c
 
 SRC			 = main.c
 SRC			+= $(addprefix mutex/,				$(MUTEX))
+SRC			+= $(addprefix error/,			 	$(ERROR))
 SRC			+= $(addprefix tests/,			 	$(TESTS))
-#SRC		+= $(addprefix env/,			 	 $(ENV))
-#SRC		+= $(addprefix internal/,			 $(INTERNAL))
-#SRC		+= $(addprefix exec/, 	  			 $(EXEC))
-#SRC		+= $(addprefix parse/,    			 $(PARSE))
-#SRC		+= $(addprefix prompt/,   			 $(PROMPT))
-#SRC		+= $(addprefix utils/,         		 $(UTILS))
 
 TESTS_FILES	 = $(addprefix tests/, $(TESTS))
 STANDARD_SRC = $(filter-out $(TESTS_FILES),  $(SRC))

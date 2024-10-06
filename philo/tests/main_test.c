@@ -12,10 +12,17 @@
 
 #include "philosopher_tests.h"
 
-int main(void) {
+int main(int argc, char **argv)
+{
+	(void) argc;
+	(void) argv;
+
 	UNITY_BEGIN();
 
-	RUN_TEST(GenericTest);
+	// --- MUTEX --- //
+	RUN_TEST(LockMutexTest);
+	RUN_TEST(UnlockMutexTest);
+	RUN_TEST(IsLockedMutexTest);
 
 	return UNITY_END();
 }
