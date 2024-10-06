@@ -57,7 +57,7 @@ SRC			+= $(addprefix tests/,			 	$(TESTS))
 #SRC		+= $(addprefix utils/,         		 $(UTILS))
 
 TESTS_FILES	 = $(addprefix tests/, $(TESTS))
-STANDARD_SRC = $(filter-out $TESTS_FILES,  $(SRC))
+STANDARD_SRC = $(filter-out $(TESTS_FILES),  $(SRC))
 
 TEST_SRC	 = $(filter-out main.c, 			$(SRC))
 TEST_SRC	+= $(addprefix tests/Unity/src/, 	unity.c)
