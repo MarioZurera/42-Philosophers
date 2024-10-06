@@ -49,30 +49,3 @@ void IsLockedMutexTest(void)
 	mutex_unlock(mutex);
 	TEST_ASSERT_FALSE(mutex_islocked(mutex));
 }
-
-// void AtomicIntegerMutexTest(void)
-// {
-// 	t_mutex m;
-// 	t_mutex *mutex = &m;
-// 	int i = 0;
-//
-// 	pthread_mutex_init(mutex, NULL);
-// 	atomic_integer_set(mutex, &i, 10);
-// 	TEST_ASSERT_TRUE(mutex_islocked(mutex));
-// 	mutex_unlock(mutex);
-// 	TEST_ASSERT_FALSE(mutex_islocked(mutex));
-//
-// 	pthread_t thread;
-//
-//
-//
-// 	pthread_create(&thread, NULL, lock_mutex_thread, (void *)mutex);
-// 	pthread_join(thread, NULL);
-//
-// 	atomic_integer_set(mutex, &i, 10);
-// 	TEST_ASSERT_TRUE(mutex_islocked(mutex));
-//
-// 	// Unlock the mutex and test if it is unlocked
-// 	mutex_unlock(mutex);
-// 	TEST_ASSERT_FALSE(mutex_islocked(mutex));
-// }

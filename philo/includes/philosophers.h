@@ -18,6 +18,7 @@
 # include <pthread.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 # include <stdbool.h>
 # include "colors.h"
 
@@ -34,6 +35,8 @@ typedef pthread_mutex_t	t_mutex;
 void	mutex_lock(pthread_mutex_t *mutex);
 void	mutex_unlock(pthread_mutex_t *mutex);
 bool	mutex_islocked(pthread_mutex_t *mutex);
+int		atomic_integer_get(pthread_mutex_t *mutex, const int *i);
+void	atomic_integer_set(pthread_mutex_t *mutex, int *i, int value);
 
 
 // --- ERROR --- //

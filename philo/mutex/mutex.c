@@ -34,3 +34,24 @@ bool	mutex_islocked(pthread_mutex_t *mutex)
 	exit_error("[ABORT]: Unable to check mutex status.");
 	return (1);
 }
+
+int	atomic_integer_get(pthread_mutex_t *mutex, const int *i)
+{
+	int	n;
+
+	mutex_lock(mutex);
+	n = *i;
+	mutex_unlock(mutex);
+	return (n);
+}
+
+void	atomic_integer_set(pthread_mutex_t *mutex, int *i, const int value)
+{
+
+	mutex_lock(mutex);
+	if (value == -1)
+		(*i)++;
+	else
+		*i = value;
+	mutex_unlock(mutex);
+}

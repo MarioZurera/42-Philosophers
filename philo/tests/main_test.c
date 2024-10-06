@@ -23,6 +23,8 @@ int main(int argc, char **argv)
 	RUN_TEST(LockMutexTest);
 	RUN_TEST(UnlockMutexTest);
 	RUN_TEST(IsLockedMutexTest);
+	RUN_TEST(AtomicIntegerMutexTest);
 
 	return UNITY_END();
+	return 0;
 }

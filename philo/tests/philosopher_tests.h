@@ -20,5 +20,6 @@
 void LockMutexTest(void);
 void UnlockMutexTest(void);
 void IsLockedMutexTest(void);
+void AtomicIntegerMutexTest(void);
 
 #endif /* PHILOSOPHER_TESTS_H */
