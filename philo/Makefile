@@ -23,7 +23,7 @@ RM			= rm -rf
 INC			= includes
 
 MUTEX		= mutex.c
-TESTS		= test_main.c generic.c
+TESTS		= main_test.c mutex_test.c
 #ENV		=
 #INTERNAL	=
 #EXEC		=

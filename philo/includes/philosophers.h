@@ -14,7 +14,21 @@
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
-#include <stdio.h>
+# include <stdio.h>
+# include <pthread.h>
+# include <stdlib.h>
+
+// --- TYPES --- //
+
+typedef pthread_mutex_t t_mutex;
+
+// --- ENUMS --- //
+
+typedef enum e_mutex
+{
+	MUTEX_LOCK,
+	MUTEX_UNLOCK
+}	t_mutex_state;
 
 // --- MAIN --- //
 

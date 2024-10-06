@@ -15,6 +15,7 @@
 # define PHILOSOPHER_TESTS_H
 
 #include "Unity/src/unity.h"
+#include "../includes/philosophers.h"
 
 void GenericTest(void);
 
